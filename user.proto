@@ -1,0 +1,20 @@
+// user.proto
+syntax = "proto3";
+
+message User {
+  int32 id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+service UserService {
+  rpc AddUser(User) returns (User);
+  rpc GetUser(UserID) returns (User);
+  rpc ListUsers(Empty) returns (stream User);
+}
+
+message UserID {
+  int32 id = 1;
+}
+
+message Empty {}
